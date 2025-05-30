@@ -1,0 +1,572 @@
+/* Elite Fashions Premium Styles */
+
+/* CSS Variables for Theme */
+:root {
+    --elite-50: 248 250 252;
+    --elite-100: 241 245 249;
+    --elite-200: 226 232 240;
+    --elite-300: 203 213 225;
+    --elite-400: 148 163 184;
+    --elite-500: 100 116 139;
+    --elite-600: 71 85 105;
+    --elite-700: 51 65 85;
+    --elite-800: 30 41 59;
+    --elite-900: 15 23 42;
+    --elite-950: 2 6 23;
+    
+    --gold-50: 255 251 235;
+    --gold-100: 254 243 199;
+    --gold-200: 253 230 138;
+    --gold-300: 252 211 77;
+    --gold-400: 251 191 36;
+    --gold-500: 245 158 11;
+    --gold-600: 217 119 6;
+    --gold-700: 180 83 9;
+    --gold-800: 146 64 14;
+    --gold-900: 120 53 15;
+
+    /* Mobile responsive variables */
+    --mobile-spacing: 16px;
+    --mobile-gap: 12px;
+    --card-padding: 16px;
+}
+
+/* Enhanced Animations */
+@keyframes slideDown {
+    from { 
+        transform: translateY(-100%); 
+        opacity: 0; 
+    }
+    to { 
+        transform: translateY(0); 
+        opacity: 1; 
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { 
+        transform: translateY(30px); 
+        opacity: 0; 
+    }
+    to { 
+        transform: translateY(0); 
+        opacity: 1; 
+    }
+}
+
+@keyframes scaleIn {
+    from { 
+        transform: scale(0.9); 
+        opacity: 0; 
+    }
+    to { 
+        transform: scale(1); 
+        opacity: 1; 
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes modalSlideUp {
+    from {
+        transform: translateY(50px) scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Animation Classes */
+.animate-slideDown {
+    animation: slideDown 0.4s ease-out;
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.4s ease-in;
+}
+
+.animate-slideUp {
+    animation: slideUp 0.5s ease-out;
+}
+
+.animate-scaleIn {
+    animation: scaleIn 0.4s ease-out;
+}
+
+.animate-slideIn {
+    animation: slideIn 0.5s ease-out;
+}
+
+.animate-modalSlideUp {
+    animation: modalSlideUp 0.4s ease-out;
+}
+
+/* Premium Typography */
+.font-serif {
+    font-family: 'Playfair Display', serif;
+}
+
+.font-sans {
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Enhanced Button Styles */
+.btn-primary {
+    background: linear-gradient(135deg, hsl(var(--gold-500)), hsl(var(--gold-600)));
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px 0 rgba(245, 158, 11, 0.4);
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, hsl(var(--gold-600)), hsl(var(--gold-700)));
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px 0 rgba(245, 158, 11, 0.5);
+}
+
+.btn-secondary {
+    background: hsl(var(--elite-100));
+    color: hsl(var(--elite-700));
+    border: 2px solid hsl(var(--elite-200));
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background: hsl(var(--elite-200));
+    border-color: hsl(var(--elite-300));
+    transform: translateY(-1px);
+}
+
+/* Hamburger Menu Animation */
+.hamburger-line {
+    transition: all 0.3s ease;
+}
+
+#mobileMenuBtn.open .hamburger-line:first-child {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+#mobileMenuBtn.open .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+#mobileMenuBtn.open .hamburger-line:last-child {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Enhanced Product Card Styles */
+.product-card {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    background: white;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    position: relative;
+    padding: var(--card-padding);
+    margin-bottom: var(--mobile-spacing);
+}
+
+.product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.03), rgba(245, 158, 11, 0.06));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+    border-radius: 1.5rem;
+}
+
+.product-card:hover::before {
+    opacity: 1;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+        0 25px 50px -12px rgba(0, 0, 0, 0.25),
+        0 0 0 1px rgba(245, 158, 11, 0.1);
+}
+
+.product-card img {
+    transition: transform 0.7s ease;
+    border-radius: 1rem;
+}
+
+.product-card:hover img {
+    transform: scale(1.08);
+}
+
+/* Enhanced Hover Effects */
+.hover-lift {
+    transition: all 0.4s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Star Rating Styles */
+.star-filled {
+    color: hsl(var(--gold-400));
+    filter: drop-shadow(0 1px 2px rgba(245, 158, 11, 0.3));
+}
+
+.star-empty {
+    color: hsl(var(--elite-300));
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    border: 4px solid hsl(var(--elite-200));
+    border-top: 4px solid hsl(var(--gold-500));
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    animation: spin 1s linear infinite;
+}
+
+/* Enhanced Loading State */
+.skeleton {
+    background: linear-gradient(90deg, 
+        hsl(var(--elite-200)) 25%, 
+        hsl(var(--elite-100)) 50%, 
+        hsl(var(--elite-200)) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+/* Modal Styles */
+.modal-backdrop {
+    backdrop-filter: blur(12px);
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: hsl(var(--elite-100));
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, hsl(var(--gold-400)), hsl(var(--gold-500)));
+    border-radius: 6px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, hsl(var(--gold-500)), hsl(var(--gold-600)));
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-track {
+    background: hsl(var(--elite-800));
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, hsl(var(--gold-600)), hsl(var(--gold-700)));
+}
+
+/* Scroll Lock */
+.scroll-locked {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+/* Hide scrollbar utility */
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+/* Mobile menu transition */
+#mobileMenu.open {
+    max-height: 500px;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Category Filter Enhancements */
+.category-btn {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.category-btn.active {
+    background: linear-gradient(135deg, hsl(var(--gold-500)), hsl(var(--gold-600))) !important;
+    color: white !important;
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);
+}
+
+.category-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+.category-btn:hover::before {
+    left: 100%;
+}
+
+/* Image Upload Guidance Box */
+.definition-toggle {
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+}
+
+.definition-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    background: hsl(var(--gold-50));
+    border: 1px solid hsl(var(--gold-200));
+    border-radius: 1rem;
+    padding: 0 1.5rem;
+    margin-top: 1rem;
+}
+
+.dark .definition-content {
+    background: hsl(var(--gold-900), 0.2);
+    border-color: hsl(var(--gold-600));
+}
+
+.definition-toggle.active + .definition-content {
+    max-height: 200px;
+    padding: 1.5rem;
+}
+
+/* Enhanced form inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="url"],
+textarea,
+select {
+    transition: all 0.3s ease;
+    border-width: 2px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="url"]:focus,
+textarea:focus,
+select:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.15);
+}
+
+/* Text gradient utility */
+.text-gradient {
+    background: linear-gradient(135deg, hsl(var(--gold-400)), hsl(var(--gold-600)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Line clamp utilities */
+.line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Enhanced mobile responsiveness */
+@media (max-width: 768px) {
+    .mobile-layout .product-card {
+        margin-bottom: var(--mobile-spacing);
+        padding: var(--card-padding);
+    }
+    
+    .mobile-layout .product-card:hover {
+        transform: translateY(-4px);
+    }
+    
+    .mobile-layout .category-btn {
+        font-size: 0.875rem;
+        padding: 0.75rem 1.25rem;
+    }
+    
+    .mobile-layout button {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .mobile-layout .product-card img {
+        height: 12rem;
+    }
+    
+    /* Better modal spacing on mobile */
+    .modal-backdrop > div {
+        margin: 1rem !important;
+        max-height: calc(100vh - 2rem) !important;
+    }
+}
+
+/* Tablet responsive adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .tablet-layout .product-card {
+        padding: 1.25rem;
+    }
+}
+
+/* Enhanced dark mode support */
+.dark .product-card {
+    background: hsl(var(--elite-800));
+    border: 1px solid hsl(var(--elite-700));
+}
+
+.dark .product-card:hover {
+    box-shadow: 
+        0 25px 50px -12px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(245, 158, 11, 0.2);
+}
+
+/* Success and error message styles */
+.alert-success {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 8px 25px 0 rgba(16, 185, 129, 0.4);
+    margin-bottom: 1rem;
+}
+
+.alert-error {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 8px 25px 0 rgba(239, 68, 68, 0.4);
+    margin-bottom: 1rem;
+}
+
+/* Enhanced Go to Top Button */
+#goTopBtn {
+    box-shadow: 0 12px 35px rgba(245, 158, 11, 0.4);
+    transition: all 0.3s ease;
+}
+
+#goTopBtn:hover {
+    box-shadow: 0 16px 45px rgba(245, 158, 11, 0.5);
+}
+
+/* Grid responsive enhancements */
+.products-grid {
+    display: grid;
+    gap: var(--mobile-gap);
+    padding: var(--mobile-spacing);
+}
+
+/* Enhanced header scroll effect */
+header {
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Better touch targets for mobile */
+@media (max-width: 768px) {
+    button, a, input, select, textarea {
+        min-height: 44px;
+    }
+}
+
+/* Smooth transitions for all interactive elements */
+button, a, input, select, textarea, .product-card, .category-btn {
+    transition: all 0.3s ease;
+}
+
+/* Enhanced focus states */
+button:focus, a:focus, input:focus, select:focus, textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+}
+
+/* Performance optimizations */
+.lazy-load {
+    transition: opacity 0.3s ease;
+}
+
+.lazy-load[data-loaded="false"] {
+    opacity: 0.5;
+}
+
+.lazy-load[data-loaded="true"] {
+    opacity: 1;
+}
