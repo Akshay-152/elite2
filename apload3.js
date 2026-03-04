@@ -16,7 +16,7 @@ async function handleImageUpload(inputEl, hiddenInputId) {
   statusEl.style.color = "#d97706"; // amber
 
   // Random Cloudinary
-  const cloudNames = ["de7bwqvq5", "drooohxav", "ddbphbdqs"];
+  const cloudNames = ["de7bwqvq5"];
   const selectedCloud = cloudNames[Math.floor(Math.random() * cloudNames.length)];
 
   const formData = new FormData();
